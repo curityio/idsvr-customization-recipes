@@ -31,13 +31,13 @@ The recipes should have three main levels, to demonstrate these technical areas:
 
 ## Template Areas
 
-- Perhaps the same changes as a template area
-- Deal with string IDs, as suggested by Jacob
+- Areas for web and mobile apps
+- Deal with messae string IDs differently, as suggested by Jacob
 - Other, to be defined, and discussed with Urban + PMEs
 
 ## Extensibility
 
-This might come as a later releasem, but I'd like to do something related to registration and custom data.\
+This might come as a later release, but I'd like to do something related to registration and custom data.\
 My [draft document](https://docs.google.com/document/d/1cYaSE1vTech62-MVQnVJyxiHz3ml64riQLPrjeaUVnY/edit#) has some early thoughts.
 
 ## Technical Setup
