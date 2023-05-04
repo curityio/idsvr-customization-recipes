@@ -1,0 +1,3 @@
+#set ($logo_path = "$_staticResourceRootPath/assets/images/example-logo.png")
+
+<img class="login-logo" src="$!logo_path" alt="Logo" title="Logo" role="presentation" width="140" height="40">
