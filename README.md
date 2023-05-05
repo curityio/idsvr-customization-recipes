@@ -47,6 +47,17 @@ Login to the Admin UI if required, using these details, to understand other part
 - Username: admin
 - Password: Password1
 
-## Test Customizations
+## Run OAuth Tools
 
-TODO: Run code flows using customizations, with OAuth tools, with optional use of ngrok.
+Once the system is up and running, use OAuth tools to test deployed customizations.\
+Run the desktop version of OAuth Tools and create an environment from this metadata URL:
+
+```text
+http://localhost:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
+```
+
+Then run a code flow with these client settings:
+
+- Client ID: web-client
+- Client Secret: Password1
+- Scope: openid
