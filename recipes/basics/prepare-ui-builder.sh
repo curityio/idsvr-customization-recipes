@@ -36,9 +36,17 @@ FILE_NAME='custom.properties'
 cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #
-# Copy a custom message in the authenticate message file
+# English text updates for the HTML form login screen
 #
 FILE_PATH='messages/overrides/en/authenticator/html-form/authenticate'
+FILE_NAME='messages'
+mkdir -p ../../ui-builder/src-vol/$FILE_PATH
+cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
+
+#
+# Portuguese text updates for the HTML form login screen
+#
+FILE_PATH='messages/overrides/pt/authenticator/html-form/authenticate'
 FILE_NAME='messages'
 mkdir -p ../../ui-builder/src-vol/$FILE_PATH
 cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
