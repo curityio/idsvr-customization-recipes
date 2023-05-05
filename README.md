@@ -19,8 +19,8 @@ export RECIPE='basics'
 ./run-ui-builder.sh
 ```
 
-This copies the files from the [basics](recipes/basics/) folder, then opens the UI builder at the customized page.\
-You can see a list of all pages by browsing to the base URL of http:/localhost:3000.
+This copies the files from the first recipe, then opens the UI builder at the customized page.\
+You can see a list of all pages by browsing to the base URL of http://localhost:3000.
 
 ## Example Customizations
 
@@ -41,7 +41,7 @@ export RECIPE='basics'
 ./deploy-idvr.sh
 ```
 
-Login to the Admin UI if required, using these details, to understand other parts of the setup:
+Login to the Admin UI if required, using these details, to understand the demo client and its authentication:
 
 - URL: https://localhost:6749/admin
 - Username: admin
