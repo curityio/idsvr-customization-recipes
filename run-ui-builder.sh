@@ -7,19 +7,19 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 #
-# Create the folder
-#
-rm -rf ui-builder 2>/dev/null
-mkdir ui-builder
-cd ui-builder
-
-#
 # Check a recipe has been provided
 #
 if [ "$RECIPE" != 'basics' -a "$RECIPE" != 'template-areas' ]; then
   echo 'Please provide a valid RECIPE parameter before running the deployment'
   exit 1
 fi
+
+#
+# Create the ui-builder folder
+#
+rm -rf ui-builder 2>/dev/null
+mkdir ui-builder
+cd ui-builder
 
 #
 # Run the UI builder the first time to copy files locally
@@ -39,11 +39,13 @@ echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
 cd ../../ui-builder
 
 #
-# Then run the Docker image pointing to the local copy of files
+# Then run the Docker image pointing to the source and build volumes
+# The input files are built from the source volume to the build volume
 #
 echo 'Running the UI builder docker image ...'
 docker run --name ui-builder -p 3000:3000 -p 3001:3001 \
        -v $(pwd)/src-vol:/opt/ui-builder/src/curity \
+       -v $(pwd)/build-vol:/opt/ui-builder/build/curity \
        -d curity.azurecr.io/curity/ui-builder:8.1.0
 
 #

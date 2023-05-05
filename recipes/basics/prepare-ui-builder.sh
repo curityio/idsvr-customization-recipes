@@ -1,10 +1,32 @@
 #!/bin/bash
 
-############################################
-# Copy the customization into the UI builder
-############################################
+###############################################################################
+# Provide input customizations for the recipe to the UI builder's source volume
+###############################################################################
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
+
+#
+# Copy the settings
+#
+FILE_PATH='templates/overrides'
+FILE_NAME='settings.vm'
+mkdir -p ../../ui-builder/src-vol/$FILE_PATH
+cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
+
+#
+# Copy the logo image
+#
+FILE_PATH='images'
+FILE_NAME='example-logo.png'
+cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
+
+#
+# Copy the custom CSS theme source, which will be compiled to a CSS file
+#
+#FILE_PATH='scss'
+#FILE_NAME='example-theme.scss'
+#cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #
 # Copy a custom message in a general properties file
@@ -19,21 +41,6 @@ cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 FILE_PATH='messages/overrides/en/authenticator/html-form/authenticate'
 FILE_NAME='messages'
 mkdir -p ../../ui-builder/src-vol/$FILE_PATH
-cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
-
-#
-# Copy the logo fragment
-#
-FILE_PATH='templates/overrides/fragments'
-FILE_NAME='logo.vm'
-mkdir -p ../../ui-builder/src-vol/$FILE_PATH
-cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
-
-#
-# Copy the logo itself
-#
-FILE_PATH='images'
-FILE_NAME='example-logo.png'
 cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #

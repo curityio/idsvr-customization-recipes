@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#########################################################################################
-# Copy files for this customization to a docker deployment for the Curity Identity Server
-#########################################################################################
+#############################################################################################
+# Copy output customizations from the UI builder's build volume to the Curity Identity Server
+#############################################################################################
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 ROOT='../recipes/basics'

@@ -1,12 +1,14 @@
 # Curity Identity Server Customization Recipes
 
-A quick start to 
+A fast setup for running the common login customization use cases.\
+Once understood, similar customizations can be quickly applied to your own system.
 
 ## Prerequisites
 
-- Docker
-- Java runtime
-- envsubst
+First ensure that the following components are installed locally:
+
+- A [Docker](https://www.docker.com/) engine
+- The [envsubst]https://github.com/a8m/envsubst) tool
 
 ## Run the UI Builder
 
@@ -17,7 +19,7 @@ export RECIPE='basics'
 ./run-ui-builder.sh
 ```
 
-This copies the files from the `recipes/basics` folder, then opens the UI builder at the customized page.\
+This copies the files from the [basics](recipes/basics/) folder, then opens the UI builder at the customized page.\
 You can see a list of all pages by browsing to the base URL of http:/localhost:3000.
 
 ## Example Customizations
@@ -27,7 +29,8 @@ Each link is a folder and you can inspect resources to understand the changes.
 
 | Example | Description |
 | ------- | ----------- |
-| [Basics](recipes/basics) | Simple customizations to change text, logos, styles and email templates | 
+| [Basics](recipes/basics) | Simple customizations to change text, logos and styles | 
+| [Email Templates](recipes/email) | Customizations to email text and email templates | 
 | [Template Areas](recipes/template-areas) | How to implement different branded customizations per client application |
 
 ## Deploy Customizations
@@ -47,4 +50,5 @@ Login to the Admin UI if required, using these details:
 
 ## Test Customizations
 
-TODO - describe OAuth tools and the client, with ngrok as one option in the deployment file.
+TODO - describe testing customizations using OAuth tools and a web client.\
+Use ngrok as one option in the deployment file.
