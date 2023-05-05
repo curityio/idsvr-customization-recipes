@@ -8,7 +8,7 @@ Once understood, similar customizations can be quickly applied to your own syste
 First ensure that the following components are installed locally:
 
 - A [Docker](https://www.docker.com/) engine
-- The [envsubst]https://github.com/a8m/envsubst) tool
+- The [envsubst](https://github.com/a8m/envsubst) tool
 
 ## Run the UI Builder
 
@@ -24,8 +24,7 @@ You can see a list of all pages by browsing to the base URL of http:/localhost:3
 
 ## Example Customizations
 
-Some example customizations are provided, in the below link.\
-Each link is a folder and you can inspect resources to understand the changes.
+Some example customizations are provided, in the below link, each of which has its own README file:
 
 | Example | Description |
 | ------- | ----------- |
@@ -35,14 +34,14 @@ Each link is a folder and you can inspect resources to understand the changes.
 
 ## Deploy Customizations
 
-Deploy customizations with the Curity Identity Server, using a command of this form:
+Deploy the recipe files to the Curity Identity Server, using a command of this form:
 
 ```bash
 export RECIPE='basics'
 ./deploy-idvr.sh
 ```
 
-Login to the Admin UI if required, using these details:
+Login to the Admin UI if required, using these details, to understand other parts of the setup:
 
 - URL: https://localhost:6749/admin
 - Username: admin
