@@ -24,9 +24,9 @@ cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 #
 # Copy the custom CSS theme source, which will be compiled to a CSS file
 #
-#FILE_PATH='scss'
-#FILE_NAME='example-theme.scss'
-#cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
+FILE_PATH='scss'
+FILE_NAME='example-theme.scss'
+cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #
 # Copy a custom message in a general properties file

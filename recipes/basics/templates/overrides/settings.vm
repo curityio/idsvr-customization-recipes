@@ -1,6 +1,9 @@
 #parse("settings-defaults")
+
 #set ($logo_path = $!_staticResourceRootPath + '/assets/images/example-logo.png')
 #set ($logo_inside = true)
 #set ($show_symbol = false)
 #set ($powered_by = false)
-## #set ($theme_css_path = $!_staticResourceRootPath + '/assets/css/example-theme.css')
+
+#set ($main_css_path = $!_staticResourceRootPath + '/assets/css/main.css' )
+#set ($theme_css_path = $!_staticResourceRootPath + '/assets/css/example-theme.css')
