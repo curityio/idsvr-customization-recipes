@@ -1,17 +1,22 @@
 # Basic Customizations
 
-This recipe shows how to implement basic customizations with the templating system.
+This recipe shows how to implement basic customizations with the templating system.\
+The deployed system uses the `Username is Email` option from the Account Manager:
+
+![Account Manager](_doc/account-manager.png)
 
 ## Custom Brand
 
-When the UI builder is run, a simple branded login screen is shown.\
-Updates to the `Settings.vm` file have removed some default UI elements:
+When the UI builder is run, a simple branded login screen is shown:
 
 ![UI Builder Login](_doc/ui-builder-login.png)
 
-The deployed system will use the `Username is Email` option in the Account Manager:
+Updates to the `Settings.vm` file have removed some default UI elements.\
+An `example-theme.scss` is also deployed, with customizations marked like this:
 
-![Account Manager](_doc/account-manager.png)
+```text
+/*** CUSTOM ***/
+```
 
 ## UI Builder Development
 
