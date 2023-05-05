@@ -49,5 +49,4 @@ Login to the Admin UI if required, using these details, to understand other part
 
 ## Test Customizations
 
-TODO - describe testing customizations using OAuth tools and a web client.\
-Use ngrok as one option in the deployment file.
+TODO: Run code flows using customizations, with OAuth tools, with optional use of ngrok.
