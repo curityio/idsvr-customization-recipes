@@ -1,6 +1,6 @@
 # Basic Customizations
 
-This recipe shows how to implement basic customizations with the templating system.\
+This recipe shows how to implement basic customizations with the templating system.
 
 ## UI Builder Development
 

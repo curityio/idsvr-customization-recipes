@@ -1,6 +1,6 @@
 # Email Customizations
 
-This recipe shows how to implement email customizations with the templating system.\
+This recipe shows how to implement email customizations with the templating system.
 
 ## UI Builder Development
 

@@ -20,19 +20,19 @@ export RECIPE='basics'
 ```
 
 This copies the files from the first recipe, then opens the UI builder at the customized page.\
-You can see a list of all pages by browsing to the base URL of http://localhost:3000.\
+You can see a list of all pages by browsing to the base URL of http://localhost:3000.  
 In the following screenshot the language has been set to Portuguese:
 
 ![UI Builder Options](images/ui-builder-options.png)
 
-## Example Customizations
+## Example Recipes
 
 Some example customizations are provided, in the below link, each of which has its own README file:
 
 | Recipe Name | Description |
 | ----------- | ----------- |
 | [basics](recipes/basics) | Simple customizations to change text, logos and styles | 
-| [email](recipes/email) | Customizations to email text and email templates | 
+| [email](recipes/email) | Customizations to email text, styles and templates, for email based login flows | 
 | [multi-brand](recipes/multi-brand) | How to implement different branded customizations per client application |
 
 ## Deploy Customizations
