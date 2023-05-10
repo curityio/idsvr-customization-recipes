@@ -1,6 +1,6 @@
 # Multi-Brand Customizations
 
-This recipe shows how to implement multi-brand customizations with the templating system.\
+This recipe shows how to implement multi-brand customizations with the templating system.
 
 ## UI Builder Development
 
