@@ -20,7 +20,10 @@ export RECIPE='basics'
 ```
 
 This copies the files from the first recipe, then opens the UI builder at the customized page.\
-You can see a list of all pages by browsing to the base URL of http://localhost:3000.
+You can see a list of all pages by browsing to the base URL of http://localhost:3000.\
+In the following screenshot the language has been set to Portuguese:
+
+![UI Builder Options](images/ui-builder-options.png)
 
 ## Example Customizations
 
@@ -30,7 +33,7 @@ Some example customizations are provided, in the below link, each of which has i
 | ----------- | ----------- |
 | [basics](recipes/basics) | Simple customizations to change text, logos and styles | 
 | [email](recipes/email) | Customizations to email text and email templates | 
-| [template-areas](recipes/template-areas) | How to implement different branded customizations per client application |
+| [multi-brand](recipes/multi-brand) | How to implement different branded customizations per client application |
 
 ## Deploy Customizations
 
@@ -47,6 +50,10 @@ Login to the Admin UI if required, using these details, to understand the demo c
 - Username: admin
 - Password: Password1
 
+The deployed system uses the `Username is Email` option from the Account Manager:
+
+![Account Manager](images/account-manager.png)
+
 ## Run OAuth Tools
 
 Once the system is up and running, use OAuth tools to test deployed customizations.\
@@ -56,11 +63,10 @@ Run the desktop version of OAuth Tools and create an environment from this metad
 http://localhost:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
 ```
 
-Then run a code flow with a test client of either `web-client1` or `web-client2`.\
-In the `template-areas` recipe these clients use different brands.\
-Use the following settings in OAuth tools:
+Then run a code flow with a test client, and use the following settings in OAuth tools.\
+Alternatively use `template-area` clients with a client ID of `web-client1` or `web-client2`.
 
-- Client ID: web-client1
+- Client ID: web-client
 - Client Secret: Password1
 - Scope: openid
 - Prompt: login

@@ -7,25 +7,19 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 #
-# Copy the settings
+# The authenticate template for brand 1
 #
-FILE_PATH='templates/overrides'
-FILE_NAME='settings.vm'
+FILE_PATH='templates/template-areas/brand1/authenticator/html-form/authenticate'
+FILE_NAME='get.vm'
 mkdir -p ../../ui-builder/src-vol/$FILE_PATH
 cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #
-# Copy the logo image
+# The authenticate template for brand 2
 #
-FILE_PATH='images'
-FILE_NAME='example-logo.png'
-cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
-
-#
-# Copy the custom CSS theme source, which will be compiled to a CSS file
-#
-FILE_PATH='scss'
-FILE_NAME='example-theme.scss'
+FILE_PATH='templates/template-areas/brand2/authenticator/html-form/authenticate'
+FILE_NAME='get.vm'
+mkdir -p ../../ui-builder/src-vol/$FILE_PATH
 cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 
 #
@@ -47,4 +41,4 @@ cp $FILE_PATH/$FILE_NAME ../../ui-builder/src-vol/$FILE_PATH/$FILE_NAME
 #
 # Set the UI builder URL to open, which shows the customizations
 #
-export UI_BUILDER_URL='http://localhost:3000/authenticator/html-form/authenticate/get'
+export UI_BUILDER_URL='http://localhost:3000/authenticator/html-form/authenticate/get?area=brand1'
