@@ -21,8 +21,9 @@ $CUSTOM_RESOURCES
 
   #
   # Also deploy a Docker based mail server, for sending login related emails
+  # Then browse to http://localhost:8080 to see received emails, such as those for reset password
   #
-  mail-server:
+  smtp-server:
     image: maildev/maildev
     hostname: smtpserver
     environment:

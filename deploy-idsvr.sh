@@ -18,7 +18,7 @@ fi
 #
 # Check a recipe has been provided
 #
-if [ "$RECIPE" != 'basics' -a "$RECIPE" != 'template-areas' ]; then
+if [ "$RECIPE" != 'basics' -a "$RECIPE" != 'email' -a "$RECIPE" != 'template-areas' ]; then
   echo 'Please provide a recipe parameter before running the deployment'
   exit 1
 fi

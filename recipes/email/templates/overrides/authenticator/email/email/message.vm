@@ -1,0 +1,49 @@
+#*
+ * Copyright (C) 2016 Curity AB. All rights reserved.
+ *
+ * The contents of this file are the property of Curity AB.
+ * You may not copy or use this file, in either source code
+ * or executable form, except in compliance with terms
+ * set by Curity AB.
+ *
+ * For further information, please contact Curity AB.
+ *#
+
+#*
+ * This is the HTML version of the email that will be sent during authentication.
+ *
+ * For a full list of variables available in this template and their associated values, do the following:
+ *
+ * 1. Create a file called globals.vm in <installation-dir>/usr/share/templates/overrides/fragments
+ *
+ * 2. Add the following to this new file:
+ *
+ * <!--
+ *    All variables:
+ *    #foreach ($entry in $_context.entrySet())
+ *        $entry.key => $!entry.value
+ *    #end
+ * -->
+ *
+ * 3. Request this template again and view the HTML source code. All variables and their values will be shown in an
+ *    HTML comment at the top of the file.
+ *
+ * For more information about using the Velocity templating language, refer to
+ * http://velocity.apache.org/engine/devel/user-guide.html.
+ *#
+
+
+#define($_body)
+
+<p>#message("authenticator.email.email.linkdescription")</p>
+  <a href="$_hyperlink"
+    style="background-color:#6ecf72;border-radius:2px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;letter-spacing:1px;line-height:45px;text-align:center;text-decoration:none;width:100%;-webkit-text-size-adjust:none;box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);">#message(
+    "authenticator.email.email.email.button")</a>
+
+    <p><small>#message("authenticator.email.email.expires")</small></p>
+
+    <p>#message("authenticator.email.email.greeting")<br/>
+    #message("authenticator.email.email.signature")</p>
+#end
+
+#parse("layouts/html-email")

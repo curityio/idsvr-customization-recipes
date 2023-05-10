@@ -26,11 +26,11 @@ You can see a list of all pages by browsing to the base URL of http://localhost:
 
 Some example customizations are provided, in the below link, each of which has its own README file:
 
-| Example | Description |
-| ------- | ----------- |
-| [Basics](recipes/basics) | Simple customizations to change text, logos and styles | 
-| [Email Templates](recipes/email) | Customizations to email text and email templates | 
-| [Template Areas](recipes/template-areas) | How to implement different branded customizations per client application |
+| Recipe Name | Description |
+| ----------- | ----------- |
+| [basics](recipes/basics) | Simple customizations to change text, logos and styles | 
+| [email](recipes/email) | Customizations to email text and email templates | 
+| [template-areas](recipes/template-areas) | How to implement different branded customizations per client application |
 
 ## Deploy Customizations
 
@@ -56,8 +56,17 @@ Run the desktop version of OAuth Tools and create an environment from this metad
 http://localhost:8443/oauth/v2/oauth-anonymous/.well-known/openid-configuration
 ```
 
-Then run a code flow with these client settings:
+Then run a code flow with a test client of either `web-client1` or `web-client2`.\
+In the `template-areas` recipe these clients use different brands.\
+Use the following settings in OAuth tools:
 
-- Client ID: web-client
+- Client ID: web-client1
 - Client Secret: Password1
 - Scope: openid
+- Prompt: login
+
+Select the `HTML Form` authenticator and use the `Create Account` option to register a new test user.\
+Then authenticate as the user and also run `Reset Password` flows that trigger emails.\
+View received emails by browsing to http://localhost:1080:
+
+![Email messages](images/email.png)

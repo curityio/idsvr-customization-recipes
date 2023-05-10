@@ -9,7 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 #
 # Check a recipe has been provided
 #
-if [ "$RECIPE" != 'basics' -a "$RECIPE" != 'template-areas' ]; then
+if [ "$RECIPE" != 'basics' -a "$RECIPE" != 'email' -a "$RECIPE" != 'template-areas' ]; then
   echo 'Please provide a valid RECIPE parameter before running the deployment'
   exit 1
 fi
