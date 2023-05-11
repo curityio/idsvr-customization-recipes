@@ -1,0 +1,4 @@
+     - ./ui-builder/build-vol/templates/template-areas/brand1/authenticator/html-form/authenticate/get.vm:/opt/idsvr/usr/share/templates/template-areas/brand1/authenticator/html-form/authenticate/get.vm
+     - ./ui-builder/build-vol/templates/template-areas/brand2/authenticator/html-form/authenticate/get.vm:/opt/idsvr/usr/share/templates/template-areas/brand2/authenticator/html-form/authenticate/get.vm
+     - ./ui-builder/build-vol/messages/overrides/en/authenticator/html-form/authenticate/messages:/opt/idsvr/usr/share/messages/overrides/en/authenticator/html-form/authenticate/messages
+     - ./ui-builder/build-vol/messages/overrides/pt/authenticator/html-form/authenticate/messages:/opt/idsvr/usr/share/messages/overrides/pt/authenticator/html-form/authenticate/messages

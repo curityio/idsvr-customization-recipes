@@ -31,15 +31,24 @@ docker rm --force ui-builder
 echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
 
 #
-# Prepare the recipe, by copying customizations to the source volume
+# Prepare the recipe, by traversing customizations and copying them to the source volume
 #
-cat ./recipes/$RECIPE/files.json | jq -c '.files[]' |
-while IFS=$'\t' read -r c; do
-  FOLDER=$(echo "$c" | jq -r '.folder')
-  FILE=$(echo "$c" | jq -r '.file')
-  mkdir -p "./ui-builder/src-vol/$FOLDER"
-  cp "./recipes/$RECIPE/$FOLDER/$FILE" "./ui-builder/src-vol/$FOLDER/$FILE"
-done
+rm ./files.txt 2>/dev/null
+find ./recipes/$RECIPE -type f -exec echo "{}" >> ./files.txt \;
+while IFS= read -r FILE_PATH
+do
+  
+  # Use bash support for removing prefixes and suffixes from strings
+  RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
+  FILE=$(basename $RELATIVE_PATH)
+  FOLDER=${RELATIVE_PATH%"/$FILE"}
+  
+  # Don't copy root level files
+  if [ "$FILE" != "$FOLDER" ]; then 
+    mkdir -p "./ui-builder/src-vol/$FOLDER"
+    cp "./recipes/$RECIPE/$FOLDER/$FILE" "./ui-builder/src-vol/$FOLDER/$FILE"
+  fi
+done < ./files.txt
 
 #
 # Then run the Docker image pointing to the source and build volumes
@@ -76,7 +85,7 @@ esac
 #
 # Open the browser
 #
-UI_BUILDER_URL=$(cat ./recipes/$RECIPE/files.json | jq -r .uibuilderurl)
+UI_BUILDER_URL=$(cat ./recipes/$RECIPE/ui-builder-url.txt)
 if [ "$PLATFORM" == 'MACOS' ]; then
   open "$UI_BUILDER_URL"
 elif [ "$PLATFORM" == 'WINDOWS' ]; then
