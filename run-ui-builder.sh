@@ -19,7 +19,6 @@ fi
 #
 rm -rf ui-builder 2>/dev/null
 mkdir ui-builder
-cd ui-builder
 
 #
 # Run the UI builder the first time to copy files locally
@@ -27,16 +26,31 @@ cd ui-builder
 echo 'Copying UI builder files from the docker image ...'
 docker rm --force ui-builder 2>/dev/null
 docker run --name ui-builder -d curity.azurecr.io/curity/ui-builder:8.1.0
-docker cp ui-builder:/opt/ui-builder/src/curity src-vol
+docker cp ui-builder:/opt/ui-builder/src/curity ./ui-builder/src-vol
 docker rm --force ui-builder
 echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
 
 #
-# Prepare the recipe, to copy customizations to the source volume
-# This also dot sources a script to set the UI_BUILDER_URL environment variable
+# Basic automation to traverse recipe files and copy them to the UI builder's source volume
 #
-. ../recipes/$RECIPE/prepare-ui-builder.sh
-cd ../../ui-builder
+rm ./files.txt 2>/dev/null
+find ./recipes/$RECIPE -type f -exec echo "{}" >> ./files.txt \;
+while IFS= read -r FILE_PATH
+do
+  
+  # Use bash support for removing prefixes and suffixes to get file names and folder paths
+  RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
+  FILE=$(basename $RELATIVE_PATH)
+  FOLDER=${RELATIVE_PATH%"/$FILE"}
+  
+  # Ignore root level files
+  if [ "$FILE" != "$FOLDER" ]; then 
+    
+    # Copy to the UI builder's source volume
+    mkdir -p "./ui-builder/src-vol/$FOLDER"
+    cp "./recipes/$RECIPE/$FOLDER/$FILE" "./ui-builder/src-vol/$FOLDER/$FILE"
+  fi
+done < ./files.txt
 
 #
 # Then run the Docker image pointing to the source and build volumes
@@ -44,15 +58,15 @@ cd ../../ui-builder
 #
 echo 'Running the UI builder docker image ...'
 docker run --name ui-builder -p 3000:3000 -p 3001:3001 \
-       -v $(pwd)/src-vol:/opt/ui-builder/src/curity \
-       -v $(pwd)/build-vol:/opt/ui-builder/build/curity \
+       -v $(pwd)/ui-builder/src-vol:/opt/ui-builder/src/curity \
+       -v $(pwd)/ui-builder/build-vol:/opt/ui-builder/build/curity \
        -d curity.azurecr.io/curity/ui-builder:8.1.0
 
 #
 # Wait for it to come up
 #
 echo 'Waiting for the UI builder to come up ...'
-while [ "$(curl -s -m 1 -o /dev/null -w ''%{http_code}'' "$UI_BUILDER_URL")" != '200' ]; do
+while [ "$(curl -s -m 1 -o /dev/null -w ''%{http_code}'' http://localhost:3000/listing)" != '200' ]; do
   sleep 2
 done
 
@@ -73,6 +87,7 @@ esac
 #
 # Open the browser
 #
+UI_BUILDER_URL=$(cat ./recipes/$RECIPE/ui-builder-url.txt)
 if [ "$PLATFORM" == 'MACOS' ]; then
   open "$UI_BUILDER_URL"
 elif [ "$PLATFORM" == 'WINDOWS' ]; then
