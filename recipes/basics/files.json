@@ -1,0 +1,25 @@
+{
+    "uibuilderurl": "http://localhost:3000/authenticator/html-form/authenticate/get",
+    "files": [
+        {
+            "folder": "templates/overrides",
+            "file": "settings.vm"
+        },
+        {
+            "folder": "images",
+            "file": "example-logo.png"
+        },
+        {
+            "folder": "scss",
+            "file": "example-theme.scss"
+        },
+        {
+            "folder": "messages/overrides/en/authenticator/html-form/authenticate",
+            "file": "messages"
+        },
+        {
+            "folder": "messages/overrides/pt/authenticator/html-form/authenticate",
+            "file": "messages"
+        }
+    ]
+}
