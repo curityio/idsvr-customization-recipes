@@ -44,32 +44,35 @@ do
   
   # Use bash support for removing prefixes and suffixes to get file names and folder paths
   RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
-  SOURCE_FILE=$(basename $RELATIVE_PATH)
-  SOURCE_FOLDER=${RELATIVE_PATH%"/$SOURCE_FILE"}
+  RECIPE_FILE=$(basename $RELATIVE_PATH)
+  RECIPE_FOLDER=${RELATIVE_PATH%"/$RECIPE_FILE"}
 
   # Don't copy root level files
-  if [ "$SOURCE_FILE" != "$SOURCE_FOLDER" ]; then 
+  if [ "$RECIPE_FILE" != "$RECIPE_FOLDER" ]; then 
     
-    if [ "$SOURCE_FOLDER" == 'images' ]; then
+    if [ "$RECIPE_FOLDER" == 'images' ]; then
       
-      # Point to the image location within the build volume
-      FOLDER='webroot/assets/images'
-      FILE="$SOURCE_FILE"
+      # Deploy from the source volume to the webroot subfolder
+      FROM_PATH="../ui-builder/src-vol/images/$RECIPE_FILE"
+      TO_PATH="webroot/assets/images/$RECIPE_FILE"
 
-    elif [ "$SOURCE_FOLDER" == 'scss' ]; then
+    elif [ "$RECIPE_FOLDER" == 'scss' ]; then
       
-      # Point to the compiled CSS location within the build volume
-      FOLDER='webroot/assets/css'
-      FILE="${SOURCE_FILE/.scss/.css}"
+      # Deploy from the compiled CSS file in the build volume to the webroot subfolder
+      CSS_FILE="${RECIPE_FILE/.scss/.css}"
+      FROM_PATH="../ui-builder/build-vol/webroot/assets/css/$CSS_FILE"
+      TO_PATH="webroot/assets/css/$CSS_FILE"
+      
 
     else
       
-      FOLDER="$SOURCE_FOLDER"
-      FILE="$SOURCE_FILE"
+      # Deploy from the source volume to the same relative location
+      FROM_PATH="../ui-builder/src-vol/$RECIPE_FOLDER/$RECIPE_FILE"
+      TO_PATH="$RECIPE_FOLDER/$RECIPE_FILE"
     fi
 
     ## Add to the docker compose custom resources
-    echo "     - ../ui-builder/build-vol/$FOLDER/$FILE:/opt/idsvr/usr/share/$FOLDER/$FILE" >> ./custom_resources.txt
+    echo "     - $FROM_PATH:/opt/idsvr/usr/share/$TO_PATH" >> ./custom_resources.txt
   fi
 
 done < ./files.txt

@@ -41,15 +41,15 @@ do
   
   # Use bash support for removing prefixes and suffixes to get file names and folder paths
   RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
-  FILE=$(basename $RELATIVE_PATH)
-  FOLDER=${RELATIVE_PATH%"/$FILE"}
+  RECIPE_FILE=$(basename $RELATIVE_PATH)
+  RECIPE_FOLDER=${RELATIVE_PATH%"/$RECIPE_FILE"}
   
   # Ignore root level files
-  if [ "$FILE" != "$FOLDER" ]; then 
+  if [ "$RECIPE_FILE" != "$RECIPE_FOLDER" ]; then 
     
     # Copy to the UI builder's source volume
-    mkdir -p "./ui-builder/src-vol/$FOLDER"
-    cp "./recipes/$RECIPE/$FOLDER/$FILE" "./ui-builder/src-vol/$FOLDER/$FILE"
+    mkdir -p "./ui-builder/src-vol/$RECIPE_FOLDER"
+    cp "./recipes/$RECIPE/$RECIPE_FOLDER/$RECIPE_FILE" "./ui-builder/src-vol/$RECIPE_FOLDER/$RECIPE_FILE"
   fi
 done < ./files.txt
 
@@ -58,7 +58,7 @@ done < ./files.txt
 # The input files are built from the source volume to the build volume
 #
 echo 'Running the UI builder docker image ...'
-docker run --name ui-builder -p 3000:3000 -p 3001:3001 \
+docker run --name ui-builder -p 3000:3000 -p 3001:3001 -p 4060:4060 \
        -v $(pwd)/ui-builder/src-vol:/opt/ui-builder/src/curity \
        -v $(pwd)/ui-builder/build-vol:/opt/ui-builder/build/curity \
        -d curity.azurecr.io/curity/ui-builder:8.1.0
