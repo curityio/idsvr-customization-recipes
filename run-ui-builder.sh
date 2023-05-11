@@ -32,6 +32,7 @@ echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
 
 #
 # Basic automation to traverse recipe files and copy them to the UI builder's source volume
+# Comment out this section to run UI builder without any customization
 #
 rm ./files.txt 2>/dev/null
 find ./recipes/$RECIPE -type f -exec echo "{}" >> ./files.txt \;

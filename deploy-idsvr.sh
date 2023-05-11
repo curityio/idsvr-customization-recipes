@@ -6,6 +6,7 @@
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 cp ./hooks/pre-commit ./.git/hooks
+export CUSTOM_RESOURCES=''
 
 #
 # Check for a license file
@@ -33,6 +34,7 @@ fi
 
 #
 # Basic automation to traverse recipe files and copy them from the UI builder's builder volume to the Docker container
+# Comment out this section to deploy with only default files
 #
 rm ./files.txt            2>/dev/null
 rm ./custom_resources.txt 2>/dev/null
@@ -69,6 +71,7 @@ do
     ## Add to the docker compose custom resources
     echo "     - ../ui-builder/build-vol/$FOLDER/$FILE:/opt/idsvr/usr/share/$FOLDER/$FILE" >> ./custom_resources.txt
   fi
+
 done < ./files.txt
 export CUSTOM_RESOURCES=$(cat ./custom_resources.txt)
 rm ./files.txt
