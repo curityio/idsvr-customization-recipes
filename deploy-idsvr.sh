@@ -32,17 +32,47 @@ if [ ! -d ./ui-builder/build-vol ]; then
 fi
 
 #
-# Prepare the recipe, by creating Docker Compose resources
+# Basic automation to traverse recipe files and copy them from the UI builder's builder volume to the Docker container
 #
-ROOT='./ui-builder/build-vol'
-rm ./idsvr/custom_resources.txt 2>/dev/null
-cat ./recipes/$RECIPE/files.json | jq -c '.files[]' |
-while IFS=$'\t' read -r c; do
-  FOLDER=$(echo "$c" | jq -r '.folder')
-  FILE=$(echo "$c" | jq -r '.file')
-  echo "     - $ROOT/$FOLDER/$FILE:/opt/idsvr/usr/share/$FOLDER/$FILE" >> ./idsvr/custom_resources.txt
-done
-export CUSTOM_RESOURCES=$(cat ./idsvr/custom_resources.txt)
+rm ./files.txt            2>/dev/null
+rm ./custom_resources.txt 2>/dev/null
+find ./recipes/$RECIPE -type f -exec echo "{}" >> ./files.txt \;
+while IFS= read -r FILE_PATH
+do
+  
+  # Use bash support for removing prefixes and suffixes to get file names and folder paths
+  RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
+  SOURCE_FILE=$(basename $RELATIVE_PATH)
+  SOURCE_FOLDER=${RELATIVE_PATH%"/$SOURCE_FILE"}
+
+  # Don't copy root level files
+  if [ "$SOURCE_FILE" != "$SOURCE_FOLDER" ]; then 
+    
+    if [ "$SOURCE_FOLDER" == 'images' ]; then
+      
+      # Point to the image location within the build volume
+      FOLDER='webroot/assets/images'
+      FILE="$SOURCE_FILE"
+
+    elif [ "$SOURCE_FOLDER" == 'scss' ]; then
+      
+      # Point to the compiled CSS location within the build volume
+      FOLDER='webroot/assets/css'
+      FILE="${SOURCE_FILE/.scss/.css}"
+
+    else
+      
+      FOLDER="$SOURCE_FOLDER"
+      FILE="$SOURCE_FILE"
+    fi
+
+    ## Add to the docker compose custom resources
+    echo "     - ../ui-builder/build-vol/$FOLDER/$FILE:/opt/idsvr/usr/share/$FOLDER/$FILE" >> ./custom_resources.txt
+  fi
+done < ./files.txt
+export CUSTOM_RESOURCES=$(cat ./custom_resources.txt)
+rm ./files.txt
+rm ./custom_resources.txt
 
 #
 # Produce the final docker compose file, including customized resources
@@ -53,7 +83,6 @@ if [ $? -ne 0 ]; then
   echo '*** Problem encountered running envsubst to produce the final docker compose file'
   exit 1
 fi
-rm custom_resources.txt
 
 #
 # Run the deployment

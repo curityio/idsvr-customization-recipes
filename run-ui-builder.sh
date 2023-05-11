@@ -31,20 +31,22 @@ docker rm --force ui-builder
 echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
 
 #
-# Prepare the recipe, by traversing customizations and copying them to the source volume
+# Basic automation to traverse recipe files and copy them to the UI builder's source volume
 #
 rm ./files.txt 2>/dev/null
 find ./recipes/$RECIPE -type f -exec echo "{}" >> ./files.txt \;
 while IFS= read -r FILE_PATH
 do
   
-  # Use bash support for removing prefixes and suffixes from strings
+  # Use bash support for removing prefixes and suffixes to get file names and folder paths
   RELATIVE_PATH=${FILE_PATH#"./recipes/$RECIPE/"}
   FILE=$(basename $RELATIVE_PATH)
   FOLDER=${RELATIVE_PATH%"/$FILE"}
   
-  # Don't copy root level files
+  # Ignore root level files
   if [ "$FILE" != "$FOLDER" ]; then 
+    
+    # Copy to the UI builder's source volume
     mkdir -p "./ui-builder/src-vol/$FOLDER"
     cp "./recipes/$RECIPE/$FOLDER/$FILE" "./ui-builder/src-vol/$FOLDER/$FILE"
   fi
