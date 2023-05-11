@@ -58,7 +58,7 @@ done < ./files.txt
 # The input files are built from the source volume to the build volume
 #
 echo 'Running the UI builder docker image ...'
-docker run --name ui-builder -p 3000:3000 -p 3001:3001 -p 4060:4060 \
+docker run --name ui-builder -p 3000:3000 -p 3001:3001 \
        -v $(pwd)/ui-builder/src-vol:/opt/ui-builder/src/curity \
        -v $(pwd)/ui-builder/build-vol:/opt/ui-builder/build/curity \
        -d curity.azurecr.io/curity/ui-builder:8.1.0
