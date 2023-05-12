@@ -4,6 +4,10 @@
 #set ($logo_inside = true)
 #set ($show_symbol = true)
 
+#set ($body_background = 'body-dark')
+##set ($login_form_background = 'form-light')
+#set ($login_form_background = 'form-transparent')
+
 #set ($page_symbol_path = $!_staticResourceRootPath + '/assets/images/')
 #set ($page_symbol_bank = $page_symbol_path + "sb-group-symbol.svg")
 
