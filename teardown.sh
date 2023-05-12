@@ -10,13 +10,13 @@
 docker stop ui-builder 2>/dev/null
 
 #
+# End the Curity Identity Server deployment
+#
+docker compose --project-name customization down
+
+#
 # Stop ngrok if required
 #
 if [ "$USE_NGROK" == 'true' ]; then
   kill -9 $(pgrep ngrok) 2>/dev/null
 fi
-
-#
-# End the Curity Identity Server deployment
-#
-docker compose --project-name customization down
