@@ -1,0 +1,4 @@
+view.p1=Insira o endereço de e-mail que você nos forneceu ao se inscrever e nós lhe enviaremos um e-mail com 
+view.username=E-mail
+error.email.or.accountId.required=Você precisa digitar seu e-mail
+error.email.invalid=Insira um endereço de e-mail válido

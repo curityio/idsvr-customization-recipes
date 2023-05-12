@@ -1,0 +1,3 @@
+view.username=E-mail
+error.validation.accountId.required=You have to enter an email
+error.validation.accountId.duplicate=The email you gave is already registered

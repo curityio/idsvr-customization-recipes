@@ -11,8 +11,8 @@ When the UI builder is run, a custom email template is shown using a query param
 ## Deploy and Test the Branding
 
 When the system is deployed, brands are associated to clients:
-- web-client1 uses template area `brand1`
-- web-client2 uses template area `brand2`
+- web-client1 uses template area `sb-group`
+- web-client2 uses template area `sb-insurance`
 
 Run a code flow in OAuth Tools for client 1 to see a custom username label:
 

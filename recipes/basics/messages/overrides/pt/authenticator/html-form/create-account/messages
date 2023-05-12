@@ -1,0 +1,3 @@
+view.username=E-mail
+error.validation.accountId.required=Você precisa inserir um endereço de e-mail
+error.validation.accountId.duplicate=O endereço de e-mail que você forneceu já está registrado

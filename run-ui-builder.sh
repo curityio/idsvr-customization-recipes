@@ -24,8 +24,8 @@ mkdir ui-builder
 # Run the UI builder the first time to copy files locally
 #
 echo 'Copying UI builder files from the docker image ...'
-docker rm --force ui-builder 2>/dev/null
-docker run --name ui-builder -d curity.azurecr.io/curity/ui-builder:8.1.0
+docker rm --force ui-builder
+docker run --name ui-builder -d curity.azurecr.io/curity/ui-builder:8.2.0
 docker cp ui-builder:/opt/ui-builder/src/curity ./ui-builder/src-vol
 docker rm --force ui-builder
 echo 'Files to customize have been copied locally at ./ui-builder/src-vol'
@@ -58,10 +58,10 @@ done < ./files.txt
 # The input files are built from the source volume to the build volume
 #
 echo 'Running the UI builder docker image ...'
-docker run --name ui-builder -p 3000:3000 -p 3001:3001 \
+docker run --rm --name ui-builder -p 3000:3000 -p 3001:3001 \
        -v $(pwd)/ui-builder/src-vol:/opt/ui-builder/src/curity \
        -v $(pwd)/ui-builder/build-vol:/opt/ui-builder/build/curity \
-       -d curity.azurecr.io/curity/ui-builder:8.1.0
+       -d curity.azurecr.io/curity/ui-builder:8.2.0
 
 #
 # Wait for it to come up

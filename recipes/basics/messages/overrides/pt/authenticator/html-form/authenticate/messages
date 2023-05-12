@@ -1,1 +1,2 @@
 view.username=E-mail
+validation.error.accountId.required=Você tem que digitar seu e-mail

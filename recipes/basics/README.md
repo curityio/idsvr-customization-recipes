@@ -4,18 +4,18 @@ This recipe shows how to implement basic customizations with the templating syst
 
 ## UI Builder Development
 
-When the UI builder is run, a simple branded login screen is shown:
+When the UI builder is run, a simple branded login screen is shown.\
+This contains some custom images and other look and feel customizations.
 
 ![UI Builder Login](../../images/basics/ui-builder-login.png)
 
-Updates to the `Settings.vm` file have removed some default UI elements.\
-An `example-theme.scss` is also deployed, with customizations marked with a `CUSTOM`keyword.\
-The default username label has been updated to E-mail in all languages:
+The default `Username` label has been updated to `E-mail` in all languages:
 
 ![UI Builder Login Portuguese](../../images/basics/ui-builder-login-pt.png)
 
 ## Deploy and Test the Branding
 
-When the system is deployed, you can quickly run a login with the same branding:
+When the system is deployed, you can do more complete end-to-end testing of password flows.\
+Create an account before using email based operations:
 
 ![OAuth Tools Login](../../images/basics/oauth-tools-login.png)

@@ -332,7 +332,7 @@
                 <scope>openid</scope>
                 <scope>profile</scope>
                 <user-authentication>
-                  <template-area>brand1</template-area>
+                  <template-area>sb-group</template-area>
                 </user-authentication>
                 <allowed-origins>https://oauth.tools</allowed-origins>
                 <capabilities>
@@ -348,7 +348,7 @@
                 <scope>openid</scope>
                 <scope>profile</scope>
                 <user-authentication>
-                  <template-area>brand2</template-area>
+                  <template-area>sb-insurance</template-area>
                 </user-authentication>
                 <allowed-origins>https://oauth.tools</allowed-origins>
                 <capabilities>

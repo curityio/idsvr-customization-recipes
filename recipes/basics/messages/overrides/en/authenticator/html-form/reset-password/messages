@@ -1,0 +1,4 @@
+view.p1=Enter the e-mail address and you will receive an email with a link to reset the password.
+view.username=E-mail
+error.email.or.accountId.required=You have to enter your e-mail
+error.email.invalid=Please enter a valid e-mail address
