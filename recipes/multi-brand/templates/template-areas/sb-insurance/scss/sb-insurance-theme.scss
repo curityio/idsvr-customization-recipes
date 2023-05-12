@@ -18,8 +18,8 @@
   --page-background-position: center center;
   --page-background-repeat: no-repeat;
   --page-background-size: cover;
-  --page-background-color: #f3f5f7;
-  --page-background-color-dark: #3a445e;
+  --page-background-color: #ebffee;
+  --page-background-color-dark: #2f31b4;
   --page-powered-by-display: flex; // Set to none to hide
 }
 
@@ -46,8 +46,8 @@
 // 4 Login logo
 :root {
   --login-logo-display: block; // Set to none to hide
-  --login-logo-max-width: 200px;
-  --login-logo-max-height: 100px; /*** CUSTOM ***/
+  --login-logo-max-width: 240px;
+  --login-logo-max-height: 120px;
 }
 
 // 5. Colors
@@ -55,7 +55,7 @@
   --color-text: #737373;
   --color-heading: #262c3d;
   --color-light: white;
-  --color-primary: #323c53;
+  --color-primary: #39b54a;
   --color-primary-dark: #262c3d;
   --color-primary-medium: #3c4764;
   --color-primary-light: #7e89a8;
@@ -64,9 +64,9 @@
   --color-danger: #ca2e2b;
   --color-warning: #e0c01c;
   --color-add: #0092ff;
-  --color-spot: #d859a1;
-  --color-link: #d859a1;
-  --color-link-hover: #87148b;
+  --color-spot: #39b54a;
+  --color-link: #39b54a;
+  --color-link-hover: #1c6326;
 }
 
 // 6. Forms
@@ -103,6 +103,7 @@
 // The font stacks can be native system fonts, or web fonts. If web fonts is used the fonts need to be setup in the css using @font-face
 :root {
   --type-sans:
+    "Avenir",
     "Roboto-Regular",
     system,
     -apple-system,
@@ -112,6 +113,7 @@
     sans-serif;
   --type-weight: normal;
   --type-sans-bold:
+    "Avenir",
     "Roboto-Medium",
     system,
     -apple-system,
@@ -119,10 +121,10 @@
     "Segoe UI",
     "Lucida Grande",
     sans-serif;
-  --type-weight-bold: normal;
+  --type-weight-bold: 600;
   --type-mono: "SF Mono", consolas, monaco, "Courier New", courier, monospace;
   --type-line-height: 1.5;
-  --type-base-size: 1rem;
+  --type-base-size: 1.2rem;
 }
 
 // 8. Spacing

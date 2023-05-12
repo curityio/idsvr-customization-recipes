@@ -1,11 +1,11 @@
 #parse("settings-defaults")
 
-#set ($logo_path = $!_staticResourceRootPath + '/assets/images/secure-bank-logo.svg')
+#set ($logo_path = $!_staticResourceRootPath + '/assets/images/sb-insurance-logo.svg')
 #set ($logo_inside = true)
 #set ($show_symbol = true)
 
 #set ($page_symbol_path = $!_staticResourceRootPath + '/assets/images/')
-#set ($page_symbol_bank = $page_symbol_path + "secure-bank-symbol.svg")
+#set ($page_symbol_bank = $page_symbol_path + "sb-insurance-symbol.svg")
 
 #set ($page_symbol = $page_symbol_bank)
 #set ($page_symbol_authenticate_opt_in_mfa = $page_symbol_bank)
@@ -26,4 +26,4 @@
 #set ($powered_by = false)
 
 #set ($main_css_path = $!_staticResourceRootPath + '/assets/css/main.css' )
-#set ($theme_css_path = $!_staticResourceRootPath + '/assets/css/secure-bank-theme.css')
+#set ($theme_css_path = $!_staticResourceRootPath + '/assets/css/sb-insurance-theme.css')
