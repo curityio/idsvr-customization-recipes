@@ -76,3 +76,11 @@ Then authenticate as the user and also run `Reset Password` flows that trigger e
 View received emails by browsing to http://localhost:1080:
 
 ![Email messages](images/email.png)
+
+## Free Resources
+
+Once you have finished customization testing, free resources by running this script:
+
+```bash
+./teardown.sh
+````
