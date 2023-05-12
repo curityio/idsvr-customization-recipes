@@ -316,6 +316,7 @@
               <client>
                 <id>web-client</id>
                 <secret>$5$8t1kgiLX9yE6tJ2g$ZHI3q1hUxlySH7PdgkiBlWEHi4rB0HY05/6h.hq9v8B</secret>
+                <redirect-uris>https://oauth.tools/callback/code</redirect-uris>
                 <redirect-uris>oauth.tools://app/callback/code</redirect-uris>
                 <scope>openid</scope>
                 <scope>profile</scope>
@@ -329,6 +330,7 @@
               <client>
                 <id>web-client1</id>
                 <secret>$5$8t1kgiLX9yE6tJ2g$ZHI3q1hUxlySH7PdgkiBlWEHi4rB0HY05/6h.hq9v8B</secret>
+                <redirect-uris>https://oauth.tools/callback/code</redirect-uris>
                 <redirect-uris>oauth.tools://app/callback/code</redirect-uris>
                 <scope>openid</scope>
                 <scope>profile</scope>
@@ -345,6 +347,7 @@
               <client>
                 <id>web-client2</id>
                 <secret>$5$8t1kgiLX9yE6tJ2g$ZHI3q1hUxlySH7PdgkiBlWEHi4rB0HY05/6h.hq9v8B</secret>
+                <redirect-uris>https://oauth.tools/callback/code</redirect-uris>
                 <redirect-uris>oauth.tools://app/callback/code</redirect-uris>
                 <scope>openid</scope>
                 <scope>profile</scope>
