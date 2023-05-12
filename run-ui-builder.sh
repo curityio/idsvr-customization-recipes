@@ -52,6 +52,7 @@ do
     cp "./recipes/$RECIPE/$RECIPE_FOLDER/$RECIPE_FILE" "./ui-builder/src-vol/$RECIPE_FOLDER/$RECIPE_FILE"
   fi
 done < ./files.txt
+rm ./files.txt
 
 #
 # Then run the Docker image pointing to the source and build volumes

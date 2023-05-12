@@ -7,9 +7,8 @@ Once understood, similar customizations can be quickly applied to your own syste
 
 First ensure that the following components are installed locally:
 
-- A [Docker](https://www.docker.com/) engine
-- The [jq](https://stedolan.github.io/jq/download/) tool
-- The [envsubst](https://github.com/a8m/envsubst) tool
+- A [Docker](https://www.docker.com/) engine for your operating system
+- The [envsubst](https://github.com/a8m/envsubst) tool, eg by running `brew install gettext`
 
 ## Run the UI Builder
 

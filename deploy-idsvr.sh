@@ -81,6 +81,22 @@ rm ./files.txt
 rm ./custom_resources.txt
 
 #
+# If an environment variable of 'USE_NGROK=true' is provided, create an ngrok tunnel and update the base URL
+#
+RUNTIME_BASE_URL='http://localhost:8443'
+if [ "$USE_NGROK" == 'true' ]; then
+  kill -9 $(pgrep ngrok) 2>/dev/null
+  ngrok http 8443 -log=stdout &
+  sleep 5
+  RUNTIME_BASE_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r '.tunnels[] | select(.proto == "https") | .public_url')
+  if [ "$RUNTIME_BASE_URL" == '' ]; then
+    echo 'Problem encountered getting an NGROK URL'
+    exit 1
+  fi
+fi
+export RUNTIME_BASE_URL
+
+#
 # Produce the final docker compose file, including customized resources
 #
 cd idsvr

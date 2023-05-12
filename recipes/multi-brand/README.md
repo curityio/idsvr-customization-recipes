@@ -4,9 +4,13 @@ This recipe shows how to implement multi-brand customizations with the templatin
 
 ## UI Builder Development
 
-When the UI builder is run, a custom email template is shown using a query parameter such as `area=?brand1`:
+When the UI builder is run, a custom email template is shown using a query parameter of `area=?sb-group`:
 
-![UI Builder Login](../../images/multi-brand/ui-builder-area.png)
+![UI Builder Brand 1](../../images/multi-brand/ui-builder-brand1.png)
+
+Switch to the other brand by changing the query parameter to `area=?sb-insurance`:
+
+![UI Builder Brand 2](../../images/multi-brand/ui-builder-brand2.png)
 
 ## Deploy and Test the Branding
 
@@ -16,8 +20,8 @@ When the system is deployed, brands are associated to clients:
 
 Run a code flow in OAuth Tools for client 1 to see a custom username label:
 
-![OAuth Tools Login](../../images/multi-brand/client1.png)
+![OAuth Tools Brand 1](../../images/multi-brand/oauth-tools-brand1.png)
 
 Run a code flow in OAuth Tools flow for client 2 to see a different custom username label:
 
-![OAuth Tools Login](../../images/multi-brand/client2.png)
+![OAuth Tools Brand 2](../../images/multi-brand/oauth-tools-brand2.png)

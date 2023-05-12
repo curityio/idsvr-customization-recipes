@@ -18,6 +18,7 @@ $CUSTOM_RESOURCES
       ADMIN: 'true'
       PASSWORD: 'Password1'
       LOGGING_LEVEL: 'INFO'
+      RUNTIME_BASE_URL: "${RUNTIME_BASE_URL}"
 
   #
   # Also deploy a Docker based mail server, for sending login related emails
