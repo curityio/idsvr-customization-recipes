@@ -1,6 +1,6 @@
 #parse("settings-defaults")
 
-#set ($logo_path = $!_staticResourceRootPath + '/assets/images/sb-group-logo.svg')
+#set ($logo_white_path = $!_staticResourceRootPath + '/assets/images/sb-group-logo-white.svg')
 #set ($logo_inside = true)
 #set ($show_symbol = true)
 
