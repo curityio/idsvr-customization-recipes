@@ -27,3 +27,5 @@
 
 #set ($main_css_path = $!_staticResourceRootPath + '/assets/css/main.css' )
 #set ($theme_css_path = $!_staticResourceRootPath + '/assets/css/sb-insurance-theme.css')
+
+#set ($current_area = "sb-insurance")

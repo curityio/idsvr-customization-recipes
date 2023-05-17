@@ -56,10 +56,16 @@
         #end
     #end
 
-    <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate")</h1>
-    
+    #if ($current_area == "sb-group")
+        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbgroup")</h1>
+    #elseif ($current_area == "sb-insurance")
+        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbinsurance")</h1>
+    #else
+        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate")</h1>
+    #end
+ 
     <div class="form-field">
-        <label for="userName" class="$!_errorClassUsername">#message("authenticator.html-form.authenticate.view.username1")</label>
+        <label for="userName" class="$!_errorClassUsername">#message("authenticator.html-form.authenticate.view.username")</label>
         <input type="text" name="userName" autocorrect="off" spellcheck="false" class="block full-width mb1 field-light $!_errorClassUsername" autocapitalize="none"
         value="$!userNameValue" #if ($_passwordOnly)disabled="disabled" #else autofocus #end>
         <i class="form-field-icon icon ion-ios-person"></i>

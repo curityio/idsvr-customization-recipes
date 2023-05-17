@@ -57,7 +57,7 @@
     #end
 
     <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate")</h1>
-    
+
     <div class="form-field">
         <label for="userName" class="$!_errorClassUsername">#message("authenticator.html-form.authenticate.view.username")</label>
         <input type="text" name="userName" autocorrect="off" spellcheck="false" class="block full-width mb1 field-light $!_errorClassUsername" autocapitalize="none"
