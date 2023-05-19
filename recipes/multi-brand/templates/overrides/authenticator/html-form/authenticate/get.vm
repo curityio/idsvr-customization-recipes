@@ -56,13 +56,13 @@
         #end
     #end
 
-    #if ($current_area == "sb-group")
-        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbgroup")</h1>
-    #elseif ($current_area == "sb-insurance")
-        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbinsurance")</h1>
-    #else
-        <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate")</h1>
-    #end
+#if ($current_area == "sb-group")
+    <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbgroup")</h1>
+#elseif ($current_area == "sb-insurance")
+    <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate.sbinsurance")</h1>
+#else
+    <h1 class="mt0 center">#message("authenticator.html-form.authenticate.view.authenticate")</h1>
+#end
  
     <div class="form-field">
         <label for="userName" class="$!_errorClassUsername">#message("authenticator.html-form.authenticate.view.username")</label>

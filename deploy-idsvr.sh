@@ -47,8 +47,8 @@ do
   RECIPE_FILE=$(basename $RELATIVE_PATH)
   RECIPE_FOLDER=${RELATIVE_PATH%"/$RECIPE_FILE"}
 
-  # Don't copy root level files
-  if [ "$RECIPE_FILE" != "$RECIPE_FOLDER" ]; then 
+  # Don't copy root level files or generated macOS files
+  if [ "$RECIPE_FILE" != "$RECIPE_FOLDER" -a "$RECIPE_FILE" != '.DS_Store' ]; then 
     
     if [ "$RECIPE_FOLDER" == 'images' ]; then
       
