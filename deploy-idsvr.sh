@@ -67,7 +67,7 @@ do
     else
       
       # Deploy from the source volume to the same relative location
-      FROM_PATH="../ui-builder/src-vol/$RECIPE_FOLDER/$RECIPE_FILE"
+      FROM_PATH="../ui-builder/build-vol/$RECIPE_FOLDER/$RECIPE_FILE"
       TO_PATH="$RECIPE_FOLDER/$RECIPE_FILE"
     fi
 
@@ -94,6 +94,7 @@ if [ "$USE_NGROK" == 'true' ]; then
     exit 1
   fi
 fi
+echo "The OpenID Connect metadata endpoint is at $RUNTIME_BASE_URL/oauth/v2/oauth/anonymous/.well-known/openid-configuration"
 export RUNTIME_BASE_URL
 
 #
@@ -107,11 +108,12 @@ if [ $? -ne 0 ]; then
 fi
 
 #
-# Run the deployment
+# Run a local deployment with customizations
 #
 docker compose --project-name customization down
-docker compose --project-name customization up
+docker compose --project-name customization up --detach
 if [ $? -ne 0 ]; then
   echo "Problem encountered running the Docker deployment"
   exit 1
 fi
+echo 'Please wait for docker containers to download and deployment to complete ...'

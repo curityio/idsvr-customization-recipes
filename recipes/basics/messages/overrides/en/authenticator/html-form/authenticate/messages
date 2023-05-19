@@ -1,4 +1,2 @@
 view.username=E-mail
 validation.error.accountId.required=You have to enter your email
-
-view.forgot-account-id=Forgot your username?
