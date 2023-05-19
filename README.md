@@ -1,5 +1,8 @@
 # Curity Identity Server Customization Recipes
 
+[![quality](https://img.shields.io/badge/quality-example-red)](https://curity.io/resources/code-examples/status/)
+[![availabitly](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
+
 A fast setup for running the common login customization use cases.\
 Once understood, similar customizations can be quickly applied to your own system.
 
