@@ -1,0 +1,3 @@
+#parse("settings-defaults")
+
+#set ($$logo_email_path = $!_staticResourceRootPath + '/assets/images/secure-bank-logo-white.svg')

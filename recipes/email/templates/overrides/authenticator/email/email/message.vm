@@ -32,13 +32,12 @@
  * http://velocity.apache.org/engine/devel/user-guide.html.
  *#
 
-
 #define($_body)
 
 <p>#message("authenticator.email.email.linkdescription")</p>
   <a href="$_hyperlink"
-    style="background-color:#6ecf72;border-radius:2px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;letter-spacing:1px;line-height:45px;text-align:center;text-decoration:none;width:100%;-webkit-text-size-adjust:none;box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);">#message(
-    "authenticator.email.email.email.button")</a>
+    style="background-color:#6ecf72;border-radius:2px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;letter-spacing:1px;line-height:45px;text-align:center;text-decoration:none;width:100%;-webkit-text-size-adjust:none;box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);">
+    #message("authenticator.email.email.button")</a>
 
     <p><small>#message("authenticator.email.email.expires")</small></p>
 
