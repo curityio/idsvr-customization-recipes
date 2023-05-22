@@ -1,3 +1,12 @@
 #parse("settings-defaults")
 
-#set ($$logo_email_path = $!_staticResourceRootPath + '/assets/images/secure-bank-logo-white.svg')
+#if ($_baseUrl)
+    
+  ## For deployed systems, use a URL that the email client can reach
+  #set ($logo_email_path = $!_baseUrl + '/assets/images/secure-bank-logo-white.svg')
+    
+#else
+
+  ## For UI Builder development, use a local file path
+  #set ($logo_email_path = $!_staticResourceRootPath + '/assets/images/secure-bank-logo-white.svg')
+#end

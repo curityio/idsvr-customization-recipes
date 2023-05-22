@@ -38,7 +38,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <!-- CUSTOM EMAIL TITLE -->
-    <title>#message("${_templatePrefix}.email.subject")</title>
+    <title>#message("${_templatePrefix}.subject")</title>
 
     <style>
 
@@ -164,9 +164,9 @@
       <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
         <tr>
           
-          <!-- SAN SERIF FONT AND UPDATED TEXT COLOR -->
+          <!-- SAN SERIF FONT, UPDATED TEXT COLOR, AND USE THE DEFAULT FOOTER MESSAGE -->
           <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #FFFFFF; text-align: center;">
-            #message("${_templatePrefix}.email.footer")
+            #message("email.footer")
           </td>
         </tr>
       </table>

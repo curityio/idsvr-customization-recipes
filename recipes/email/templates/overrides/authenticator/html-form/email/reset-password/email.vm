@@ -1,5 +1,5 @@
 #*
- * Copyright (C) 2016 Curity AB. All rights reserved.
+ * Copyright (C) 2015 Curity AB. All rights reserved.
  *
  * The contents of this file are the property of Curity AB.
  * You may not copy or use this file, in either source code
@@ -10,7 +10,7 @@
  *#
 
 #*
- * This is the HTML version of the email that will be sent during authentication.
+ * This view is shown to the user as an HTML email if they have forgotten their password and ask for it to be emailed to them.
  *
  * For a full list of variables available in this template and their associated values, do the following:
  *
@@ -32,17 +32,16 @@
  * http://velocity.apache.org/engine/devel/user-guide.html.
  *#
 
+## The title of this page can be overridden by setting the $title variable here to a resource string or the actual value
+##set($title = "")
+
+#set ($url = "$_setPasswordUrl?token=$nonce$!oq")
+
 #define($_body)
-
-<p>#message("authenticator.email.email.linkdescription")</p>
-  <a href="$_hyperlink"
-    style="background-color:#6ecf72;border-radius:2px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;letter-spacing:1px;line-height:45px;text-align:center;text-decoration:none;width:100%;-webkit-text-size-adjust:none;box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);">
-    #message("authenticator.email.email.button")</a>
-
-    <p><small>#message("authenticator.email.email.expires")</small></p>
-
-    <p>#message("authenticator.email.email.greeting")<br/>
-    #message("authenticator.email.email.signature")</p>
+    <p>#message("authenticator.html-form.email.reset-password.email.head1")</p>
+    <a href="$url" style="background-color:#6ecf72;border-radius:2px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:17px;font-weight:bold;letter-spacing:1px;line-height:45px;text-align:center;text-decoration:none;width:100%;-webkit-text-size-adjust:none;box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);">
+        #message("authenticator.html-form.email.reset-password.email.button")
+    </a>
 #end
 
 #parse("layouts/html-email")
