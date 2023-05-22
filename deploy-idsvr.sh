@@ -52,8 +52,8 @@ do
     
     if [ "$RECIPE_FOLDER" == 'images' ]; then
       
-      # Deploy from the source volume to the webroot subfolder
-      FROM_PATH="../ui-builder/src-vol/images/$RECIPE_FILE"
+      # Deploy from the build volume to the webroot subfolder
+      FROM_PATH="../ui-builder/build-vol/webroot/assets/images/$RECIPE_FILE"
       TO_PATH="webroot/assets/images/$RECIPE_FILE"
 
     elif [ "$RECIPE_FOLDER" == 'scss' ]; then
