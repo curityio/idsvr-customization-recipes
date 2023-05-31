@@ -18,7 +18,6 @@ First ensure that the following components are installed locally:
 First run the ui-builder tool, with a recipe to customize:
 
 ```bash
-export USE_NGROK=false
 export RECIPE='basics'
 ./run-ui-builder.sh
 ```
@@ -41,10 +40,11 @@ Some example customizations are provided, in the below link, each of which has i
 
 ## Deploy Customizations
 
-Deploy the recipe files to the Curity Identity Server, using a command of this form:
+Deploy the recipe files to the Curity Identity Server, using commands such as the following:
 
 ```bash
 export RECIPE='basics'
+export USE_NGROK=false
 ./deploy-idvr.sh
 ```
 
