@@ -19,6 +19,7 @@ First run the ui-builder tool, with a recipe to customize:
 
 ```bash
 export RECIPE='basics'
+export USE_NGROK=false
 ./run-ui-builder.sh
 ```
 
