@@ -18,8 +18,8 @@ First ensure that the following components are installed locally:
 First run the ui-builder tool, with a recipe to customize:
 
 ```bash
-export RECIPE='basics'
 export USE_NGROK=false
+export RECIPE='basics'
 ./run-ui-builder.sh
 ```
 
